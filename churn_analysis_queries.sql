@@ -9,3 +9,4 @@ select IsActiveMember,count(*)as total_customers,sum(Exited) as churned_customer
 select NumOfProducts,count(*) as total_customers,sum(Exited) as churned_customers,round(sum(Exited)*100.0/count(*),2) as churn_rate from customer_churn group by NumOfProducts order by churn_rate desc;
 select case when CreditScore<500 then 'low' when CreditScore between 500 and 700 then 'medium' else 'high' end as credit_category, count(*) as total_customers,sum(Exited) as churned_customers,round(sum(Exited)*100.0/count(*),2) as churn_rate from customer_churn group by credit_category;
 select round(avg(Balance),2) as avg_balance_churned from customer_churn where Exited = 1;
+
